@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+
 
 public class LoginTest {
     WebDriver driver;
@@ -23,7 +23,7 @@ public class LoginTest {
     private void beforeMethod(){
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         driver = WebDriverManager.chromedriver().create();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://www.letskodeit.com/");
         signInButton = driver.findElement(
                 By.xpath("//div[@data-component='button']/a[contains(text(),'Sign In')]")
