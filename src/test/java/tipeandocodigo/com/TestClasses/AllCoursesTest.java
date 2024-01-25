@@ -1,7 +1,8 @@
 package tipeandocodigo.com.TestClasses;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.BeforeAll;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -15,6 +16,7 @@ import java.time.Duration;
 public class AllCoursesTest {
 
     WebDriver driver;
+
     HomePage homePage;
     AllCourses allCourses;
     String baseURL = "https://www.letskodeit.com/";
@@ -28,7 +30,7 @@ public class AllCoursesTest {
     }
 
 
-    @Test
+    @Test(priority = 1)
     public void testSearchCourses(){
         String username = "irving0689@hotmail.com";
         String password = "39FU8JV@CLxcX@h";
@@ -37,14 +39,20 @@ public class AllCoursesTest {
         homePage.login(username,password);
         homePage.validateSuccessfulLogIn();
         homePage.clickOnAllCoursesButton();
+        allCourses.countCourses();
         allCourses.searchCourses(course);
         Assert.assertTrue(allCourses.validateSearch());
+    }
+
+    @Test(priority = 2)
+    public void testFilterCourses(){
+        homePage.clickOnAllCoursesButton();
+        allCourses.selectAllFilters();
     }
 
     @AfterClass
     public void tearDown(){
         driver.quit();
     }
-
 
 }
