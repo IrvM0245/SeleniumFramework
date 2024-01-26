@@ -1,22 +1,23 @@
 package tipeandocodigo.com.overview.POMS;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tipeandocodigo.com.overview.base.CustomDriver;
 
-import java.util.List;
 
 public class SearchBarPage {
 
     WebDriver driver;
+    CustomDriver customDriver;
     public SearchBarPage(WebDriver driver) {
         this.driver = driver;
+        customDriver = new CustomDriver(this.driver);
     }
-    private final String SEARCH_BAR = "//input[@id='search']";
+    private final String SEARCH_BAR = "xpath=>//input[@id=\"search\"]";
 
     public void searchCourse(String course){
-        WebElement searchBar = driver.findElement(By.xpath(SEARCH_BAR));
+        WebElement searchBar = customDriver.getElement(SEARCH_BAR);
         searchBar.click();
         searchBar.clear();
         searchBar.sendKeys(course);
