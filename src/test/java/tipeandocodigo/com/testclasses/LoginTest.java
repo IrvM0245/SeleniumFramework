@@ -1,7 +1,7 @@
-package tipeandocodigo.com.TestClasses;
+package tipeandocodigo.com.testclasses;
 
 import org.testng.annotations.*;
-import tipeandocodigo.com.BaseTest.BaseTest;
+import tipeandocodigo.com.basetest.BaseTest;
 
 public class LoginTest extends BaseTest {
 

@@ -1,10 +1,9 @@
-package tipeandocodigo.com.overview.POMS;
+package tipeandocodigo.com.overview.pageclasses;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import tipeandocodigo.com.overview.base.CustomDriver;
+import tipeandocodigo.com.overview.basepage.CustomDriver;
 
 public class HomePage {
 
@@ -35,7 +34,7 @@ public class HomePage {
     public void login(String username, String password) {
         //filling username field
         WebElement userNameField = customDriver.getElement(USERNAME_TEXTFIELD);
-                //driver.findElement(By.xpath(USERNAME_TEXTFIELD));
+                //driver.findElement(By.id(USERNAME_TEXTFIELD));
         userNameField.click();
         userNameField.clear();
         userNameField.sendKeys(username);

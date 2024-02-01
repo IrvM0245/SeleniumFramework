@@ -1,22 +1,17 @@
-package tipeandocodigo.com.BaseTest;
+package tipeandocodigo.com.basetest;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import tipeandocodigo.com.overview.POMS.AllCourses;
-import tipeandocodigo.com.overview.POMS.HomePage;
+import tipeandocodigo.com.overview.pageclasses.AllCourses;
+import tipeandocodigo.com.overview.pageclasses.HomePage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.time.Duration;
 
 public class BaseTest {
     public WebDriver driver;
@@ -29,8 +24,7 @@ public class BaseTest {
 
     @BeforeClass
     public void baseSetUpData() throws FileNotFoundException {
-        driver = WebDriverManager.chromedriver().create();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver = WebDriverFactory.getInstance().getDriver("chrome");
         driver.get(baseURL);
         homePage = new HomePage(driver);
         allCourses = new AllCourses(driver);
@@ -44,8 +38,9 @@ public class BaseTest {
             course = jObject.get("course").getAsString();
         }
     }
+
    @AfterClass
     public void baseTearDown(){
-        //driver.quit();
+        WebDriverFactory.getInstance().quitDriver();
     }
 }

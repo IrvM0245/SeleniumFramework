@@ -1,8 +1,8 @@
-package Utilities;
+package utilities;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import tipeandocodigo.com.overview.POMS.AllCourses;
+import tipeandocodigo.com.overview.pageclasses.AllCourses;
 
 public class GeneralUtils {
     private static final Log log = LogFactory.getLog(AllCourses.class);

@@ -1,11 +1,7 @@
-package tipeandocodigo.com.overview.POMS;
+package tipeandocodigo.com.overview.pageclasses;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import tipeandocodigo.com.overview.base.CustomDriver;
-
-import java.util.List;
+import tipeandocodigo.com.overview.basepage.CustomDriver;
 
 public class ResultPage {
     WebDriver driver;
