@@ -1,12 +1,11 @@
-package tipeandocodigo.com.overview.POMS;
+package tipeandocodigo.com.overview.pageclasses;
 
-import Utilities.GeneralUtils;
+import utilities.GeneralUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tipeandocodigo.com.overview.base.CustomDriver;
+import tipeandocodigo.com.overview.basepage.CustomDriver;
 
 import java.util.List;
 
@@ -25,6 +24,7 @@ public class AllCourses {
 
     //LOCATORS
 
+    //private final String DROPDOWN_MENU_COURSE_FILTER_OPTIONS = "xpath=>//select[@name='categories']/option";
     private final String DROPDOWN_MENU_COURSE_FILTER_OPTIONS = "xpath=>//select[@name='categories']/option";
     private final String DROPDOWN_MENU = "xpath=>//select[@name='categories']";
 

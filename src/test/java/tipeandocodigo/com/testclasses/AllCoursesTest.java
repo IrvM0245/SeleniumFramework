@@ -1,9 +1,9 @@
-package tipeandocodigo.com.TestClasses;
+package tipeandocodigo.com.testclasses;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import tipeandocodigo.com.BaseTest.BaseTest;
+import tipeandocodigo.com.basetest.BaseTest;
 
 public class AllCoursesTest extends BaseTest {
 

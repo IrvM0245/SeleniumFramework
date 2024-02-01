@@ -1,6 +1,6 @@
-package tipeandocodigo.com.overview.base;
+package tipeandocodigo.com.overview.basepage;
 
-import Utilities.GeneralUtils;
+import utilities.GeneralUtils;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class CustomDriver {
+public class CustomDriver  {
     WebDriver driver;
     private JavascriptExecutor js;
 
@@ -118,4 +118,20 @@ public class CustomDriver {
         return element;
     }
 
+
+
+    /***
+     * Method to click a element and then wait a certain time in miliseconds
+     * @param element
+     * @param time
+     */
+    public void elementClick(WebElement element,Long time){
+        try{
+            element.click();
+            GeneralUtils.Sleep(time);
+        }catch (Exception e){
+            GeneralUtils.logMessage("There was a problem clicking the element: "+ e.getMessage(),"error");
+            e.printStackTrace();
+        }
+    }
 }

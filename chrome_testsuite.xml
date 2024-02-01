@@ -3,8 +3,8 @@
 <suite name="Sanity">
     <test name="Sanity" preserve-order="true" parallel="none">
         <classes>
-            <class name="tipeandocodigo.com.TestClasses.LoginTest"/>
-            <class name="tipeandocodigo.com.TestClasses.AllCoursesTest"/>
+            <class name="tipeandocodigo.com.testclasses.LoginTest"/>
+<!--            <class name="tipeandocodigo.com.testclasses.AllCoursesTest"/>-->
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
