@@ -9,17 +9,17 @@ import tipeandocodigo.com.overview.basepage.CustomDriver;
 
 import java.util.List;
 
-public class AllCourses {
+public class AllCourses extends CustomDriver{
 
     //Driver and constructor
     WebDriver driver;
-    CustomDriver customDriver;
+    //CustomDriver customDriver;
     SearchBarPage searchBarPage;
     private final Log log = LogFactory.getLog(AllCourses.class);
     ResultPage resultPage;
     public AllCourses(WebDriver driver) {
+        super(driver);
         this.driver = driver;
-        customDriver = new CustomDriver(driver);
     }
 
     //LOCATORS
@@ -52,8 +52,8 @@ public class AllCourses {
     }
 
     public void selectAllFilters() {
-        WebElement dropdownMenu = customDriver.getElement(DROPDOWN_MENU);
-        List<WebElement> dropDownMenuItems = customDriver.getElements(DROPDOWN_MENU_COURSE_FILTER_OPTIONS);
+        WebElement dropdownMenu = getElement(DROPDOWN_MENU);
+        List<WebElement> dropDownMenuItems = getElements(DROPDOWN_MENU_COURSE_FILTER_OPTIONS);
         if(resultPage == null){
             generateInstanceResultPage();
         }
@@ -61,12 +61,12 @@ public class AllCourses {
         for(int i=0;i < numberOfElements;i++ ){
             dropdownMenu.click();
             dropDownMenuItems.get(i).click();
-            GeneralUtils.Sleep();
+            GeneralUtils.Sleep(2000);
             GeneralUtils.logMessage("item number"+i,"info");
             GeneralUtils.logMessage("has "+resultPage.countElements()+" courses","info");
             if(i>=1){
-                dropdownMenu = customDriver.getElement(DROPDOWN_MENU);
-                dropDownMenuItems = customDriver.getElements(DROPDOWN_MENU_COURSE_FILTER_OPTIONS);
+                dropdownMenu = getElement(DROPDOWN_MENU);
+                dropDownMenuItems = getElements(DROPDOWN_MENU_COURSE_FILTER_OPTIONS);
             }
         }
     }

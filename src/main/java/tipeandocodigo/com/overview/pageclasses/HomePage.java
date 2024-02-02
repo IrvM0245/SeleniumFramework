@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import tipeandocodigo.com.overview.basepage.CustomDriver;
 
-public class HomePage {
-
-    CustomDriver customDriver;
+public class HomePage extends CustomDriver{
+    //private WebDriver driver;
+    public HomePage(WebDriver driver) {
+        super(driver);
+        //this.driver = driver;
+    }
 
     //Web elements
     private final String SIGNIN_BUTTON = "xpath=>//a[@href='/login']";
@@ -20,67 +23,50 @@ public class HomePage {
     private final String LOG_OUT_OPTION = "xpath=>//a[@href='/logout']";
     private final String LOG_IN_ERROR_LABEL = "xpath=>//span[contains(text(),'The email must be a valid email address.')]";
     //Driver and constructor
-    private WebDriver driver;
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        customDriver = new CustomDriver(this.driver);
-    }
+
 
     public void clickOnSignInButton() {
-        customDriver.getElement(SIGNIN_BUTTON).click();
+        getElement(SIGNIN_BUTTON).click();
     }
 
     public void login(String username, String password) {
         //filling username field
-        WebElement userNameField = customDriver.getElement(USERNAME_TEXTFIELD);
-                //driver.findElement(By.id(USERNAME_TEXTFIELD));
+        WebElement userNameField = getElement(USERNAME_TEXTFIELD);
         userNameField.click();
         userNameField.clear();
         userNameField.sendKeys(username);
 
         //filling password field
-        WebElement passwordField = customDriver.getElement(PASSWORD_TEXTFIELD);
-                //driver.findElement(By.xpath(PASSWORD_TEXTFIELD));
+        WebElement passwordField = getElement(PASSWORD_TEXTFIELD);
         passwordField.click();
         passwordField.clear();
         passwordField.sendKeys(password);
 
-        customDriver.getElement(LOGIN_BUTTON).click();
-                //driver.findElement(By.xpath(LOGIN_BUTTON));
+        getElement(LOGIN_BUTTON).click();
     }
 
     public void validateSuccessfulLogIn() {
-        WebElement avatar = customDriver.getElement(USER_AVATAR);
-                //driver.findElement(By.xpath(USER_AVATAR));
+        WebElement avatar = getElement(USER_AVATAR);
         Assert.assertNotNull(avatar);
     }
 
     public void clickOnAllCoursesButton() {
-       customDriver.getElement(ALL_COURSES_BUTTON).click();
-                //driver.findElement(By.xpath(ALL_COURSES_BUTTON));
+       getElement(ALL_COURSES_BUTTON).click();
     }
 
     public void validateSigInButton(){
-        WebElement sigInButton = customDriver.getElement(SIGNIN_BUTTON);
-                //driver.findElement(By.xpath(SIGNIN_BUTTON));
+        WebElement sigInButton = getElement(SIGNIN_BUTTON);
         Assert.assertNotNull(sigInButton);
     }
 
     public void logOut() {
-        customDriver.getElement(USER_MENU).click();
-        //WebElement userMenu =
-                //driver.findElement(By.xpath(USER_MENU));
-        //userMenu.click();
-
-        customDriver.getElement(LOG_OUT_OPTION).click();
-        //WebElement logOutOption = driver.findElement(By.xpath(LOG_OUT_OPTION));
-        //logOutOption.click();
+        getElement(USER_MENU).click();
+        getElement(LOG_OUT_OPTION).click();
     }
 
     public void validateErrorMessageOnWrongLogin(){
-        WebElement errorLabel = customDriver.getElement(LOG_IN_ERROR_LABEL);
-                //driver.findElement(By.xpath(LOG_IN_ERROR_LABEL));
+        WebElement errorLabel = getElement(LOG_IN_ERROR_LABEL);
         Assert.assertNotNull(errorLabel);
     }
 

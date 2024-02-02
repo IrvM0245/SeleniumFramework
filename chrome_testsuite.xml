@@ -6,5 +6,5 @@
             <class name="tipeandocodigo.com.testclasses.LoginTest"/>
             <class name="tipeandocodigo.com.testclasses.AllCoursesTest"/>
         </classes>
-    </test> 
-</suite> 
+    </test>
+</suite>

@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class CustomDriver  {
-    WebDriver driver;
+    private WebDriver driver;
     private JavascriptExecutor js;
 
     public CustomDriver(WebDriver driver){

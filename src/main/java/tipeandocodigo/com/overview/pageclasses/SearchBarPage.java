@@ -6,18 +6,15 @@ import org.openqa.selenium.WebElement;
 import tipeandocodigo.com.overview.basepage.CustomDriver;
 
 
-public class SearchBarPage {
+public class SearchBarPage extends CustomDriver{
 
-    WebDriver driver;
-    CustomDriver customDriver;
     public SearchBarPage(WebDriver driver) {
-        this.driver = driver;
-        customDriver = new CustomDriver(this.driver);
+        super(driver);
     }
     private final String SEARCH_BAR = "xpath=>//input[@id=\"search\"]";
 
     public void searchCourse(String course){
-        WebElement searchBar = customDriver.getElement(SEARCH_BAR);
+        WebElement searchBar = getElement(SEARCH_BAR);
         searchBar.click();
         searchBar.clear();
         searchBar.sendKeys(course);
