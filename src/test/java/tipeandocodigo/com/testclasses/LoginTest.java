@@ -10,19 +10,19 @@ public class LoginTest extends BaseTest {
 
     }
 
-    @Test(priority = 1)
+    @Test(testName = "failLogin",priority = 1)
     public void testLogInToFail() {
         homePage.clickOnSignInButton();
         homePage.login("Morty", "anitalavalatina");
         homePage.validateErrorMessageOnWrongLogin();
     }
 
-    @Test(priority = 2)
+    @Test(testName = "correctLogin",priority = 2)
     public void testLogIn() {
         homePage.login(username, password);
     }
 
-    @Test(priority = 3)
+    @Test(testName = "validateLogin",priority = 3)
     public void validateUserLogIn() {
         homePage.validateSuccessfulLogIn();
     }
