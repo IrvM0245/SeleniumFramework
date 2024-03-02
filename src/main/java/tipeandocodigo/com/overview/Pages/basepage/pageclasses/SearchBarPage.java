@@ -1,9 +1,9 @@
-package tipeandocodigo.com.overview.pageclasses;
+package tipeandocodigo.com.overview.Pages.basepage.pageclasses;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tipeandocodigo.com.overview.basepage.CustomDriver;
+import tipeandocodigo.com.overview.Pages.basepage.CustomDriver;
 
 
 public class SearchBarPage extends CustomDriver{

@@ -1,4 +1,4 @@
-package tipeandocodigo.com.basetest;
+package tipeandocodigo.com.E2E.basetest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

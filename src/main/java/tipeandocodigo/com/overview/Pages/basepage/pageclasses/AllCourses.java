@@ -1,26 +1,28 @@
-package tipeandocodigo.com.overview.pageclasses;
+package tipeandocodigo.com.overview.Pages.basepage.pageclasses;
 
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.GeneralUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import tipeandocodigo.com.overview.basepage.CustomDriver;
+import tipeandocodigo.com.overview.Pages.basepage.CustomDriver;
 
+import java.time.Duration;
 import java.util.List;
 
 public class AllCourses extends CustomDriver{
 
     //Driver and constructor
-    WebDriver driver;
-    //CustomDriver customDriver;
+    public AllCourses(WebDriver driver) {
+        super(driver);
+    }
     SearchBarPage searchBarPage;
     private final Log log = LogFactory.getLog(AllCourses.class);
     ResultPage resultPage;
-    public AllCourses(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-    }
+
 
     //LOCATORS
 
@@ -30,10 +32,14 @@ public class AllCourses extends CustomDriver{
 
     //METHODS
     private void generateInstanceSearchBarPage(){
-        searchBarPage = new SearchBarPage(this.driver);
+        if(searchBarPage == null){
+            searchBarPage = new SearchBarPage(this.getDriver());
+        }
     }
     private void generateInstanceResultPage(){
-        resultPage = new ResultPage(this.driver);
+        if(resultPage==null){
+            resultPage = new ResultPage(this.getDriver());
+        }
     }
     public void searchCourses(String course){
         if(searchBarPage==null){
@@ -47,8 +53,17 @@ public class AllCourses extends CustomDriver{
     }
 
     public boolean validateSearch(){
-        resultPage = new ResultPage(this.driver);
+        generateInstanceResultPage();
         return resultPage.resultSearch();
+    }
+    public boolean validateSearch2(){
+        WebElement dropdownMenu = getElement(DROPDOWN_MENU);
+        WebDriverWait wait = new WebDriverWait(this.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(dropdownMenu));
+        if(dropdownMenu.isDisplayed()){
+            return true;
+        }
+        return false;
     }
 
     public void selectAllFilters() {
@@ -70,4 +85,11 @@ public class AllCourses extends CustomDriver{
             }
         }
     }
+
+    public void testingCode(){
+        Actions actions = new Actions(this.getDriver());
+        actions.pause(1000);
+
+    }
+
 }

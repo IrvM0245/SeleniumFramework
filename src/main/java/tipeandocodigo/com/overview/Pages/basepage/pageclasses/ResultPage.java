@@ -1,7 +1,7 @@
-package tipeandocodigo.com.overview.pageclasses;
+package tipeandocodigo.com.overview.Pages.basepage.pageclasses;
 
 import org.openqa.selenium.WebDriver;
-import tipeandocodigo.com.overview.basepage.CustomDriver;
+import tipeandocodigo.com.overview.Pages.basepage.CustomDriver;
 
 public class ResultPage extends CustomDriver{
     public ResultPage(WebDriver driver) {
