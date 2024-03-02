@@ -1,4 +1,4 @@
-package tipeandocodigo.com.overview.basepage;
+package tipeandocodigo.com.overview.Pages.basepage;
 
 import utilities.GeneralUtils;
 import com.gargoylesoftware.htmlunit.ElementNotFoundException;
@@ -9,13 +9,14 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class CustomDriver  {
+public class CustomDriver {
     private WebDriver driver;
     private JavascriptExecutor js;
 
+    public CustomDriver(){
+    }
     public CustomDriver(WebDriver driver){
         this.driver = driver;
-        js = (JavascriptExecutor) driver;
     }
 
     /***
@@ -133,5 +134,13 @@ public class CustomDriver  {
             GeneralUtils.logMessage("There was a problem clicking the element: "+ e.getMessage(),"error");
             e.printStackTrace();
         }
+    }
+
+    public WebDriver getDriver(){
+        return this.driver;
+    }
+
+    public void ClickElementWithJSExecutor(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
     }
 }

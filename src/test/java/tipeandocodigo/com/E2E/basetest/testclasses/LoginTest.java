@@ -1,13 +1,12 @@
-package tipeandocodigo.com.testclasses;
+package tipeandocodigo.com.E2E.basetest.testclasses;
 
 import org.testng.annotations.*;
-import tipeandocodigo.com.basetest.BaseTest;
+import tipeandocodigo.com.E2E.basetest.BaseTest;
 
 public class LoginTest extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-
     }
 
     @Test(testName = "failLogin",priority = 1)

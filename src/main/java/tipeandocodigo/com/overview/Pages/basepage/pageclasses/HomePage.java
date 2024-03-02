@@ -1,15 +1,14 @@
-package tipeandocodigo.com.overview.pageclasses;
+package tipeandocodigo.com.overview.Pages.basepage.pageclasses;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import tipeandocodigo.com.overview.basepage.CustomDriver;
+import tipeandocodigo.com.overview.Pages.basepage.CustomDriver;
 
 public class HomePage extends CustomDriver{
     //private WebDriver driver;
     public HomePage(WebDriver driver) {
         super(driver);
-        //this.driver = driver;
     }
 
     //Web elements

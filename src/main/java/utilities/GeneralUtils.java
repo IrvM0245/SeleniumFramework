@@ -2,7 +2,9 @@ package utilities;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import tipeandocodigo.com.overview.pageclasses.AllCourses;
+import tipeandocodigo.com.overview.Pages.basepage.pageclasses.AllCourses;
+
+import java.time.LocalDate;
 
 public class GeneralUtils {
     private static final Log log = LogFactory.getLog(AllCourses.class);
@@ -15,16 +17,19 @@ public class GeneralUtils {
     }
     public static String randomString(int length){
         String baseString = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890*$%&#_-";
-        String ram = "";
+        StringBuilder sb = new StringBuilder();
         for(int i=0;i < length;i++){
-            ram+= baseString.charAt(randomNumber(baseString.length()));
+            sb.append(baseString.charAt(randomNumber(baseString.length())));
         }
-        return ram;
+        return sb.toString();
     }
     public static String randomString(){
         return randomString(10);
     }
 
+    public static String currentDate(){
+        return LocalDate.now().toString();
+    }
     /**
      * Method to sleep for the 'time' in miliseconds
      * @param time long
